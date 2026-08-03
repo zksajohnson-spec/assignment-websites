@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>زكي فؤاد علي بن عفيف | محاسب عام</title>
+
+  <style>
+    :root {
+      --off-white: #f8f3e9;
+      --white: #fffdf8;
+      --blue: #315fc4;
+      --dark-blue: #202942;
+      --orange: #ef7147;
+      --gold: #e5aa3b;
+      --gray: #727783;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--off-white);
+      color: var(--dark-blue);
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 25px rgba(49, 95, 196, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .hero {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 650px;
+      margin: 0 auto 90px;
+      padding: 65px;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 70px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(229, 170, 59, 0.14), transparent 25%),
+        linear-gradient(145deg, #fffefa, #f8ecdc);
+      border: 1px solid #e6d9c8;
+      border-radius: 8px 8px 85px 8px;
+      box-shadow: 0 30px 80px rgba(71, 49, 18, 0.1);
+      overflow: hidden;
+    }
+
+    .photo-button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--dark-blue);
+    }
+
+    .photo-frame {
+      position: relative;
+      display: block;
+    }
+
+    .photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: 20px -18px -18px 18px;
+      background: var(--gold);
+      border-radius: 8px 8px 55px 8px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1.1;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      border-radius: 8px 8px 48px 8px;
+      box-shadow: 0 25px 50px rgba(32, 41, 66, 0.2);
+    }
+
+    .zoom-label {
+      display: block;
+      margin-top: 28px;
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    .availability {
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .pulse {
+      width: 10px;
+      height: 10px;
+      margin-left: 8px;
+      display: inline-block;
+      border-radius: 50%;
+      background: #39c982;
+      box-shadow: 0 0 0 6px rgba(57, 201, 130, 0.14);
+    }
+
+    .eyebrow,
+    .kicker {
+      color: var(--orange);
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 18px 0;
+      font-size: clamp(52px, 6vw, 86px);
+      line-height: 1.06;
+      letter-spacing: -3px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #555d70;
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 52px;
+      padding: 0 22px;
+      border: 1px solid var(--dark-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--dark-blue);
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .button.primary {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: white;
+    }
+
+    .button.video {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(32, 41, 66, 0.18);
+    }
+
+    .facts {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd2c1;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .facts span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gray);
+      font-size: 11px;
+    }
+
+    .facts strong {
+      font-size: 13px;
+    }
+
+    .qualification,
+    .section,
+    .contact {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto 100px;
+    }
+
+    .qualification {
+      padding: 40px;
+      background: rgba(255, 250, 241, 0.8);
+      border-right: 6px solid var(--gold);
+    }
+
+    .qualification h2,
+    .section h2,
+    .contact h2,
+    .skills h2 {
+      margin: 10px 0 16px;
+      font-size: clamp(30px, 4vw, 48px);
+    }
+
+    .qualification p {
+      color: var(--gray);
+      line-height: 1.9;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .experience-number {
+      color: var(--orange);
+      font-size: 75px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .experience-number small {
+      display: block;
+      margin-top: 10px;
+      color: var(--blue);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .hint {
+      color: var(--gray);
+      margin-bottom: 35px;
+    }
+
+    .group-switcher {
+      margin: 45px 0 60px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      perspective: 1000px;
+    }
+
+    .quad-container {
+      width: 205px;
+      height: 164px;
+      position: relative;
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    .quad-container:nth-child(2) {
+      animation-delay: -2s;
+    }
+
+    .quad-container::before {
+      content: "";
+      position: absolute;
+      inset: 13px 0 1px;
+      background: #8f3524;
+      clip-path: polygon(0 0, 88% 0, 100% 100%, 12% 100%);
+      filter: drop-shadow(0 20px 18px rgba(32, 41, 66, 0.25));
+    }
+
+    .quad-container.institution::before {
+      background: #1a356e;
+      clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
+    }
+
+    .quad {
+      width: 205px;
+      height: 150px;
+      padding: 20px;
+      border: 0;
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #ff9d5e, #cf4d31);
+      color: white;
+      clip-path: polygon(0 0, 88% 0, 100% 100%, 12% 100%);
+      transition: 0.3s;
+    }
+
+    .institution .quad {
+      background: linear-gradient(145deg, #7897ed, #284b8c);
+      clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
+    }
+
+    .quad::before {
+      content: "";
+      position: absolute;
+      inset: -70%;
+      background: linear-gradient(
+        105deg,
+        transparent 43%,
+        rgba(255, 255, 255, 0.7) 50%,
+        transparent 57%
+      );
+      animation: shine 4s ease-in-out infinite;
+    }
+
+    .quad span,
+    .quad strong,
+    .quad small {
+      position: relative;
+      z-index: 1;
+    }
+
+    .quad span {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .quad strong {
+      margin-top: 5px;
+      font-size: 26px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .quad small {
+      margin-top: 7px;
+      opacity: 0.82;
+    }
+
+    .quad:not(.active) {
+      opacity: 0.62;
+      transform: scale(0.92);
+    }
+
+    .quad.active,
+    .quad:hover {
+      opacity: 1;
+      transform: translateY(-12px) rotateX(8deg) scale(1.045);
+      filter: drop-shadow(0 24px 25px rgba(32, 41, 66, 0.24));
+    }
+
+    .entity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      perspective: 1200px;
+    }
+
+    .entity-card {
+      --accent: var(--orange);
+      min-height: 190px;
+      padding: 24px;
+      border: 1px solid #e2d7c7;
+      border-top: 5px solid var(--accent);
+      border-radius: 18px;
+      background: linear-gradient(145deg, white, #f9efe1);
+      color: var(--dark-blue);
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow:
+        0 9px 0 rgba(32, 41, 66, 0.05),
+        0 20px 38px rgba(71, 49, 18, 0.08);
+      transition: 0.3s;
+    }
+
+    .entity-card:nth-child(3n + 2) {
+      --accent: var(--gold);
+    }
+
+    .entity-card:nth-child(3n) {
+      --accent: #6683cf;
+    }
+
+    .entity-card:hover,
+    .entity-card.selected {
+      transform: translateY(-12px) rotateX(5deg) scale(1.02);
+      border-color: var(--accent);
+      box-shadow:
+        0 12px 0 rgba(32, 41, 66, 0.07),
+        0 30px 50px rgba(71, 49, 18, 0.16);
+    }
+
+    .symbol {
+      width: 48px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: white;
+      clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+      font-weight: bold;
+    }
+
+    .entity-card strong {
+      margin-top: 28px;
+      line-height: 1.7;
+    }
+
+    .entity-card small {
+      margin-top: auto;
+      padding-top: 18px;
+      color: var(--gray);
+    }
+
+    .detail {
+      margin-top: 22px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 150px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      background: var(--dark-blue);
+      color: white;
+      border-right: 6px solid var(--orange);
+      box-shadow: 0 20px 45px rgba(32, 41, 66, 0.2);
+    }
+
+    .detail-label {
+      color: #ffbd74;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .detail h3 {
+      margin: 0 0 8px;
+    }
+
+    .detail p {
+      margin: 0;
+      color: #cbd1e2;
+      line-height: 1.7;
+    }
+
+    .period {
+      padding: 9px 13px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .skills {
+      padding: 90px max(20px, calc((100% - 1080px) / 2));
+      background: var(--dark-blue);
+      color: white;
+    }
+
+    .skills-grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .skill span {
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .skill p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .contact {
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    .contact > p {
+      color: var(--gray);
+    }
+
+    .contact-links {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-links a {
+      padding: 25px;
+      border: 1px solid #ddd2c2;
+      background: var(--white);
+      transition: 0.25s;
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange);
+    }
+
+    .contact-links span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gray);
+      font-size: 11px;
+    }
+
+    footer {
+      padding: 25px 20px;
+      background: #171e31;
+      color: #cbd1e2;
+      text-align: center;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      padding: 30px;
+      display: none;
+      place-items: center;
+      background: rgba(16, 22, 37, 0.92);
+    }
+
+    .modal.open {
+      display: grid;
+    }
+
+    .modal-close {
+      position: fixed;
+      top: 22px;
+      left: 22px;
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 24px;
+    }
+
+    .modal img {
+      max-width: min(92vw, 900px);
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .video-box {
+      width: min(900px, 94vw);
+      padding: 18px;
+      border-radius: 16px;
+      background: #121a2c;
+      color: white;
+    }
+
+    .video-box h3 {
+      margin: 0 0 15px;
+    }
+
+    .video-box video {
+      width: 100%;
+      max-height: 72vh;
+      display: block;
+      border-radius: 10px;
+      background: black;
+    }
+
+    @keyframes floating {
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes shine {
+      0%,
+      35% {
+        transform: translateX(-58%) rotate(12deg);
+      }
+
+      70%,
+      100% {
+        transform: translateX(58%) rotate(12deg);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 45px;
+      }
+
+      .hero-photo {
+        width: min(360px, 100%);
+        margin: auto;
+      }
+
+      .entity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .detail {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .qualification,
+      .section,
+      .contact {
+        width: calc(100% - 28px);
+      }
+
+      .hero {
+        padding: 30px 20px 45px;
+      }
+
+      h1 {
+        font-size: 45px;
+        letter-spacing: -1px;
+      }
+
+      .actions .button {
+        width: 100%;
+      }
+
+      .facts,
+      .entity-grid,
+      .skills-grid,
+      .contact-links {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .experience-number {
+        margin: 25px 0;
+      }
+
+      .group-switcher {
+        gap: 7px;
+      }
+
+      .quad-container {
+        width: 145px;
+        height: 136px;
+      }
+
+      .quad-container::before {
+        height: 126px;
+      }
+
+      .quad {
+        width: 145px;
+        height: 126px;
+        padding: 14px;
+      }
+
+      .quad strong {
+        font-size: 19px;
+      }
+
+      .quad small {
+        font-size: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-logo">ز</span>
+      <span>زكي بن عفيف</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#experience">الخبرات</a>
+      <a href="#skills">المهارات</a>
+      <a href="#contact">التواصل</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero" id="top">
+
+      <div class="hero-photo">
+        <button class="photo-button" id="openPhoto">
+          <span class="photo-frame">
+            <img
+              class="profile-photo"
+              src="https://zaki-bin-afif-accountant.zksajohnson.chatgpt.site/zaki-bin-afif.png"
+              alt="زكي فؤاد علي بن عفيف"
+            >
+          </span>
+
+          <span class="zoom-label">اضغط لتكبير الصورة</span>
+        </button>
+
+        <div class="availability">
+          <span class="pulse"></span>
+          متاح لدوام جزئي
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow">
+          محاسب عام • خبرة <span dir="ltr">+20</span>
+        </p>
+
+        <h1>
+          زكي فؤاد علي
+          <br>
+          <span>بن عفيف</span>
+        </h1>
+
+        <p class="intro">
+          محاسب ومدير مالي بخبرة عملية واسعة في إعداد الأنظمة المحاسبية
+          والميزانيات ومراجعة الحسابات. أبحث عن فرصة عمل بدوام جزئي لدعم
+          المنشآت بالدقة والسرعة في الإنجاز.
+        </p>
+
+        <div class="actions">
+          <a class="button primary" href="tel:0546219926">
+            تواصل الآن
+          </a>
+
+          <a
+            class="button"
+            href="https://zaki-bin-afif-accountant.zksajohnson.chatgpt.site/cv-zaki-bin-afif.pdf"
+            target="_blank"
+          >
+            تحميل السيرة الذاتية
+          </a>
+
+          <button class="button video" id="openVideo">
+            ▶ شاهد الفيديو
+          </button>
+        </div>
+
+        <div class="facts">
+          <div>
+            <span>الموقع</span>
+            <strong>جدة، المملكة العربية السعودية</strong>
+          </div>
+
+          <div>
+            <span>الجنسية</span>
+            <strong>يمني</strong>
+          </div>
+
+          <div>
+            <span>الميلاد</span>
+            <strong>1977م</strong>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="qualification">
+      <div class="kicker">المؤهل الدراسي</div>
+
+      <h2>بكالوريوس إدارة أعمال</h2>
+
+      <p>
+        تخصص إدارة مالية — الأكاديمية البحرية للعلوم والتكنولوجيا والنقل
+        الدولي، جمهورية مصر العربية — 2005م.
+      </p>
+    </section>
+
+    <section class="section" id="experience">
+
+      <div class="section-heading">
+        <div>
+          <p class="kicker">المسيرة المهنية</p>
+          <h2>خبرات متنوعة عبر قطاعات متعددة</h2>
+        </div>
+
+        <div class="experience-number" dir="ltr">
+          +20
+          <small dir="rtl">سنة خبرة</small>
+        </div>
+      </div>
+
+      <p class="hint">
+        اختر نوع الجهة، ثم اضغط على أي اسم لعرض تفاصيل الخبرة.
+      </p>
+
+      <div class="group-switcher">
+
+        <div class="quad-container company">
+          <button class="quad active" data-group="company">
+            <span>6</span>
+            <strong>شركة</strong>
+            <small>استعرض الشركات</small>
+          </button>
+        </div>
+
+        <div class="quad-container institution">
+          <button class="quad" data-group="institution">
+            <span>3</span>
+            <strong>مؤسسة</strong>
+            <small>استعرض المؤسسات</small>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="entity-grid" id="entityGrid"></div>
+
+      <article class="detail" id="detail"></article>
+
+    </section>
+
+    <section class="skills" id="skills">
+      <p class="kicker">الخبرات والمهارات</p>
+
+      <h2>حلول محاسبية متكاملة للمنشآت</h2>
+
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="kicker">للتواصل المهني</p>
+
+      <h2>متاح للعمل بدوام جزئي</h2>
+
+      <p>
+        يسعدني مناقشة احتياج منشأتكم وتقديم الدعم المحاسبي المناسب.
+      </p>
+
+      <div class="contact-links">
+        <a href="tel:0546219926">
+          <span>الجوال</span>
+          <strong dir="ltr">054 621 9926</strong>
+        </a>
+
+        <a href="mailto:zksajohnson@gmail.com">
+          <span>البريد الإلكتروني</span>
+          <strong dir="ltr">zksajohnson@gmail.com</strong>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    زكي فؤاد علي بن عفيف • محاسب عام • جدة
+  </footer>
+
+  <div class="modal" id="photoModal">
+    <button class="modal-close" data-close>×</button>
+
+    <img
+      src="https://zaki-bin-afif-accountant.zksajohnson.chatgpt.site/zaki-bin-afif.png"
+      alt="زكي فؤاد علي بن عفيف"
+    >
+  </div>
+
+  <div class="modal" id="videoModal">
+    <button class="modal-close" data-close>×</button>
+
+    <div class="video-box">
+      <h3>فيديو زكي بن عفيف بأسلوب الأنمي</h3>
+
+      <video id="profileVideo" controls playsinline>
+        <source
+          src="https://zaki-bin-afif-accountant.zksajohnson.chatgpt.site/zaki-anime.mp4"
+          type="video/mp4"
+        >
+      </video>
+    </div>
+  </div>
+
+  <script>
+    const experiences = [
+      {
+        type: "company",
+        company: "شركة التغليف الابتكاري",
+        role: "محاسب عام — دوام جزئي",
+        period: "منذ 2025 — على رأس العمل"
+      },
+      {
+        type: "company",
+        company: "شركة التوحيد المتميزة للأثاث",
+        role: "استيراد من الخارج — دوام جزئي",
+        period: "منذ 2021 — على رأس العمل"
+      },
+      {
+        type: "institution",
+        company: "مؤسسة عامر العسيري للتجارة",
+        role: "استيراد مواد غذائية وملابس وأثاث — دوام جزئي",
+        period: "منذ 2021 — على رأس العمل"
+      },
+      {
+        type: "company",
+        company: "شركة جمال العنزي للمقاولات",
+        role: "كسارة العنزي — مواد بحص — دوام جزئي",
+        period: "منذ 2020 — على رأس العمل"
+      },
+      {
+        type: "company",
+        company: "شركة رحال الغربية للمأكولات البحرية",
+        role: "مطاعم أسماك الرحيلي — فرعان — دوام جزئي",
+        period: "منذ 2020 — على رأس العمل"
+      },
+      {
+        type: "company",
+        company: "شركة إتكو الخليج المحدودة للمقاولات",
+        role: "مدير مالي — فروع جدة ومكة",
+        period: "خبرة سابقة"
+      },
+      {
+        type: "company",
+        company: "Johnson Window Films",
+        role: "مدير مالي — 25 فرعًا على مستوى الخليج",
+        period: "خبرة سابقة"
+      },
+      {
+        type: "institution",
+        company: "مؤسسة سناء أبو زيد حسن السوداني",
+        role: "تجارة الجملة والتجزئة للأدوات المكتبية",
+        period: "خبرة سابقة"
+      },
+      {
+        type: "institution",
+        company: "مؤسسة طارق بادياب",
+        role: "تجارة الجملة والتجزئة للأقمشة",
+        period: "خبرة سابقة"
+      }
+    ];
+
+    const skills = [
+      "إعداد الهيكل المحاسبي الخاص بالمنشأة",
+      "إعداد الميزانية العمومية",
+      "مراجعة وتدقيق حسابات الفترات السابقة",
+      "الدقة والسرعة في التنفيذ والتسليم",
+      "استخدام كافة البرامج المحاسبية",
+      "إجادة استخدام الحاسب الآلي",
+      "تجهيز حسابات الإقرارات الضريبية للمبيعات 15%",
+      "تجهيز الأوراق الرسمية للمنشأة ورفعها إلكترونيًا"
+    ];
+
+    let activeGroup = "company";
+    let selectedIndex = 0;
+
+    const entityGrid = document.getElementById("entityGrid");
+    const detail = document.getElementById("detail");
+
+    function renderExperiences() {
+      const visibleExperiences = experiences
+        .map((item, index) => ({ item, index }))
+        .filter(entry => entry.item.type === activeGroup);
+
+      const selectedIsVisible = visibleExperiences.some(
+        entry => entry.index === selectedIndex
+      );
+
+      if (!selectedIsVisible) {
+        selectedIndex = visibleExperiences[0].index;
+      }
+
+      entityGrid.innerHTML = visibleExperiences.map(({ item, index }) => {
+        const symbol = item.company.startsWith("Johnson")
+          ? "J"
+          : activeGroup === "institution"
+            ? "م"
+            : "ش";
+
+        return `
+          <button
+            class="entity-card ${index === selectedIndex ? "selected" : ""}"
+            data-index="${index}"
+          >
+            <span class="symbol">${symbol}</span>
+            <strong>${item.company}</strong>
+            <small>
+              ${index === selectedIndex ? "محدد الآن" : "عرض التفاصيل"}
+            </small>
+          </button>
+        `;
+      }).join("");
+
+      const selected = experiences[selectedIndex];
+
+      detail.innerHTML = `
+        <div class="detail-label">
+          تفاصيل الجهة المحددة
+        </div>
+
+        <div>
+          <h3>${selected.company}</h3>
+          <p>${selected.role}</p>
+        </div>
+
+        <span class="period">
+          ${selected.period}
+        </span>
+      `;
+
+      document.querySelectorAll(".entity-card").forEach(card => {
+        card.addEventListener("click", () => {
+          selectedIndex = Number(card.dataset.index);
+          renderExperiences();
+        });
+      });
+    }
+
+    document.querySelectorAll(".quad").forEach(button => {
+      button.addEventListener("click", () => {
+        activeGroup = button.dataset.group;
+
+        document.querySelectorAll(".quad").forEach(item => {
+          item.classList.toggle("active", item === button);
+        });
+
+        renderExperiences();
+      });
+    });
+
+    document.getElementById("skillsGrid").innerHTML = skills
+      .map((skill, index) => {
+        return `
+          <div class="skill">
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <p>${skill}</p>
+          </div>
+        `;
+      })
+      .join("");
+
+    const photoModal = document.getElementById("photoModal");
+    const videoModal = document.getElementById("videoModal");
+    const profileVideo = document.getElementById("profileVideo");
+
+    document.getElementById("openPhoto").addEventListener("click", () => {
+      photoModal.classList.add("open");
+    });
+
+    document.getElementById("openVideo").addEventListener("click", () => {
+      videoModal.classList.add("open");
+      profileVideo.play().catch(() => {});
+    });
+
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.addEventListener("click", event => {
+        if (
+          event.target === modal ||
+          event.target.hasAttribute("data-close")
+        ) {
+          modal.classList.remove("open");
+          profileVideo.pause();
+        }
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        photoModal.classList.remove("open");
+        videoModal.classList.remove("open");
+        profileVideo.pause();
+      }
+    });
+
+    renderExperiences();
+  </script>
+
+</body>
+</html>
