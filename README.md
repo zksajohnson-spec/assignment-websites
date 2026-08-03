@@ -7,3 +7,8 @@
 3. `website-3` — موقع M4 Cafe.
 
 يمكن تشغيل أي موقع بفتح ملف `index.html` داخل مجلده.
+## روابط تشغيل المواقع
+
+1. [الموقع الأول](https://zksajohnson-spec.github.io/assignment-websites/wep1/موقع1/)
+2. [الموقع الثاني](https://zksajohnson-spec.github.io/assignment-websites/wep2/)
+3. [الموقع الثالث](https://zksajohnson-spec.github.io/assignment-websites/wep3/الموقع3/)
