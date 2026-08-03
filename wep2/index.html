@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>شاورما الصفا — دليل الشاورما في حي الصفا</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Reem+Kufi:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --dark: #1c130b;
+      --dark-2: #2a1d12;
+      --cream: #faf3e7;
+      --card: #fffdf8;
+      --orange: #f2571f;
+      --orange-deep: #d6440f;
+      --yellow: #ffb21e;
+      --green: #3f8f5b;
+      --ink: #241a11;
+      --muted: #8a7f72;
+      --line: #ecdfcf;
+      --shadow-sm: 0 4px 14px rgba(60, 35, 15, 0.08);
+      --shadow-md: 0 18px 44px rgba(60, 35, 15, 0.16);
+      --shadow-lg: 0 30px 70px rgba(40, 22, 8, 0.35);
+      --radius: 20px;
+      --font: "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+      --font-display: "Reem Kufi", "Tajawal", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font);
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--yellow); color: var(--dark); }
+
+    ::-webkit-scrollbar { width: 11px; }
+    ::-webkit-scrollbar-track { background: #f1e6d6; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--orange), var(--yellow));
+      border-radius: 10px;
+      border: 3px solid #f1e6d6;
+    }
+
+    button, input, a { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 50;
+      margin: 14px auto 0;
+      width: min(1240px, 94vw);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 18px;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(236, 223, 207, 0.9);
+      border-radius: 18px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      font-size: 19px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+      background: linear-gradient(135deg, var(--yellow), #ff9d2e);
+      border-radius: 13px;
+      box-shadow: 0 6px 14px rgba(255, 178, 30, 0.4);
+    }
+
+    nav { display: flex; gap: 6px; font-weight: 700; font-size: 15px; }
+
+    nav a {
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #5c5246;
+      transition: 0.2s;
+    }
+
+    nav a:hover { color: var(--orange); background: #fff3e3; }
+
+    .header-cta {
+      padding: 10px 20px;
+      color: #fff !important;
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(242, 87, 31, 0.35);
+    }
+
+    .header-cta:hover { transform: translateY(-2px); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 20px 70px;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, #7a3118 0, transparent 32%),
+        radial-gradient(circle at 88% 20%, #6b4510 0, transparent 30%),
+        radial-gradient(circle at 50% 110%, #9c3d14 0, transparent 40%),
+        linear-gradient(160deg, #241608 0%, #1c130b 60%, #150d07 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle, rgba(255, 178, 30, 0.16) 1.5px, transparent 1.6px);
+      background-size: 34px 34px;
+      mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 75%);
+      pointer-events: none;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      pointer-events: none;
+      animation: blobFloat 14s ease-in-out infinite;
+    }
+
+    .hero-blob.one { width: 380px; height: 380px; top: -90px; left: -60px; background: #ff6a24; }
+    .hero-blob.two { width: 300px; height: 300px; bottom: -80px; right: -40px; background: #ffb21e; animation-delay: -6s; }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-28px) scale(1.06); }
+    }
+
+    .hero-float {
+      position: absolute;
+      font-size: 42px;
+      opacity: 0.32;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+      animation: floaty 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero-float.f1 { top: 15%; right: 9%; animation-delay: 0s; }
+    .hero-float.f2 { top: 62%; right: 16%; font-size: 30px; animation-delay: -2s; }
+    .hero-float.f3 { top: 28%; left: 10%; font-size: 34px; animation-delay: -3.5s; }
+    .hero-float.f4 { top: 70%; left: 20%; font-size: 26px; animation-delay: -1.2s; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-16px) rotate(5deg); }
+    }
+
+    .hero-inner { position: relative; z-index: 2; width: min(760px, 92vw); }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      color: #ffe3c4;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 178, 30, 0.4);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-badge .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #5ce07f;
+      box-shadow: 0 0 0 4px rgba(92, 224, 127, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(92, 224, 127, 0.45); }
+      50% { box-shadow: 0 0 0 8px rgba(92, 224, 127, 0); }
+    }
+
+    .hero h1 {
+      margin: 22px 0 14px;
+      font-family: var(--font-display);
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 1.18;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--yellow), #ff8a3d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 520px;
+      color: #d8cfc2;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .search-box {
+      width: min(560px, 92vw);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 30px auto 0;
+      padding: 6px 6px 6px 20px;
+      background: #fffdf8;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .search-box .search-icon { font-size: 19px; }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 2px;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .search-box input::placeholder { color: #b0a494; }
+
+    .search-kbd {
+      padding: 5px 10px;
+      color: #8a7f72;
+      background: #f2e8da;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      min-width: 130px;
+      padding: 14px 22px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+    }
+
+    .stat b {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: var(--yellow);
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: #c9bfb2;
+      font-weight: 700;
+    }
+
+    /* ---------- Sections ---------- */
+    main {
+      max-width: 1300px;
+      margin: auto;
+      padding: 80px 5vw 20px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 3px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+    }
+
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
+    }
+
+    #count {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      background: #fff3e2;
+      padding: 9px 16px;
+      border-radius: 999px;
+    }
+
+    /* ---------- Filter chips ---------- */
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .chip {
+      padding: 10px 20px;
+      color: #6b5f52;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .chip:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-1px); }
+
+    .chip.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+      border-color: transparent;
+      box-shadow: 0 8px 18px rgba(242, 87, 31, 0.3);
+    }
+
+    /* ---------- Grid & cards ---------- */
+    .restaurants-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .restaurant-card {
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+      text-align: right;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+      text-align: start;
+    }
+
+    .restaurant-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .restaurant-photo {
+      height: 215px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #3a2413, #6b4510);
+    }
+
+    .restaurant-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .restaurant-card:hover img { transform: scale(1.08); }
+
+    .restaurant-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 45%, rgba(20, 10, 4, 0.72));
+    }
+
+    .featured-tag {
+      position: absolute;
+      z-index: 2;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      color: #5a3400;
+      background: linear-gradient(135deg, #ffd66b, var(--yellow));
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 6px 14px rgba(255, 178, 30, 0.45);
+    }
+
+    .rating {
+      position: absolute;
+      z-index: 2;
+      bottom: 13px;
+      left: 13px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 12px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    .rating span { color: #f7a600; font-size: 15px; }
+
+    .price-tag {
+      position: absolute;
+      z-index: 2;
+      bottom: 13px;
+      right: 13px;
+      padding: 7px 12px;
+      color: #fff;
+      background: rgba(20, 10, 4, 0.65);
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-body { padding: 20px 20px 6px; }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-body h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--ink);
+    }
+
+    .arrow {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: var(--orange);
+      background: #fff0df;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: 900;
+      transition: 0.25s;
+    }
+
+    .restaurant-card:hover .arrow {
+      background: var(--orange);
+      color: #fff;
+      transform: rotate(-180deg);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 14px 20px 20px;
+    }
+
+    .tags span {
+      padding: 6px 11px;
+      color: #6b5a45;
+      background: #f6ecdc;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .empty {
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+    }
+
+    .empty b { display: block; color: var(--ink); font-size: 20px; margin-bottom: 6px; }
+
+    /* ---------- Reveal animation ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- About ---------- */
+    .about {
+      position: relative;
+      margin-top: 90px;
+      padding: 80px 8vw;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 178, 30, 0.18), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(255, 106, 36, 0.25), transparent 40%),
+        var(--dark);
+    }
+
+    .about::before {
+      content: "🌯";
+      position: absolute;
+      top: 26px;
+      left: 8%;
+      font-size: 60px;
+      opacity: 0.16;
+      transform: rotate(-14deg);
+    }
+
+    .about h2 {
+      margin: 0 0 14px;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
+    }
+
+    .about h2 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+
+    .about p {
+      margin: 0 auto;
+      max-width: 560px;
+      color: #d8cfc2;
+      line-height: 2;
+    }
+
+    .about-chips {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .about-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 34px 6vw;
+      color: #b7ab9d;
+      background: #150d07;
+      font-size: 14px;
+    }
+
+    footer b { color: #fff; }
+
+    footer a {
+      color: var(--yellow);
+      font-weight: 800;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ---------- Modal ---------- */
+    .modal-background {
+      display: none;
+      position: fixed;
+      z-index: 60;
+      inset: 0;
+      justify-content: flex-end;
+      background: rgba(18, 11, 5, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .modal-background.open { display: flex; }
+
+    .modal {
+      position: relative;
+      width: min(620px, 100%);
+      height: 100%;
+      overflow-y: auto;
+      background: var(--card);
+      box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+      animation: slideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(60px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .close-button {
+      position: absolute;
+      z-index: 4;
+      top: 18px;
+      left: 18px;
+      width: 44px;
+      height: 44px;
+      color: #fff;
+      background: rgba(20, 12, 6, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      font-size: 26px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .close-button:hover { background: var(--orange); transform: rotate(90deg); }
+
+    .modal-photo {
+      position: relative;
+      height: 300px;
+      background: linear-gradient(135deg, #3a2413, #6b4510);
+    }
+
+    .modal-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 30%, rgba(20, 11, 5, 0.94));
+    }
+
+    .modal-heading {
+      position: absolute;
+      z-index: 3;
+      right: 28px;
+      bottom: 24px;
+      color: #fff;
+    }
+
+    .modal-heading h2 {
+      margin: 12px 0 6px;
+      font-family: var(--font-display);
+      font-size: 34px;
+    }
+
+    .modal-heading .loc { color: #d8cfc2; font-size: 13px; }
+
+    .rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      color: #5a3400;
+      background: linear-gradient(135deg, #ffd66b, var(--yellow));
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .rating-pill .stars { color: #7c4a00; letter-spacing: 2px; }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 24px 28px 6px;
+    }
+
+    .actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 15px;
+      text-align: center;
+      border: 1.5px solid var(--line);
+      border-radius: 13px;
+      font-weight: 900;
+      transition: 0.2s;
+    }
+
+    .actions a:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+    .actions a.primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+      border-color: transparent;
+      box-shadow: 0 10px 22px rgba(242, 87, 31, 0.3);
+    }
+
+    .menu { padding: 14px 28px 40px; }
+
+    .menu-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .menu h3 { margin: 10px 0 18px; font-family: var(--font-display); font-size: 25px; }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 16px 4px;
+      border-bottom: 1px dashed var(--line);
+      transition: 0.2s;
+    }
+
+    .menu-item:hover { background: #fdf5e7; border-radius: 10px; padding-right: 12px; padding-left: 12px; }
+
+    .menu-item h4 { margin: 0 0 5px; font-size: 16px; }
+
+    .menu-item p { margin: 0; color: var(--muted); font-size: 12.5px; }
+
+    .price {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 13px;
+      color: var(--orange);
+      background: #ffefe0;
+      border-radius: 9px;
+      font-weight: 900;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .restaurants-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { top: 8px; margin-top: 8px; }
+      .topbar-inner { padding: 10px 14px; }
+      nav { display: none; }
+
+      .hero { min-height: 540px; padding: 80px 18px 60px; }
+      .hero-float { display: none; }
+      .search-kbd { display: none; }
+
+      .restaurants-grid { grid-template-columns: 1fr; }
+      .stat { min-width: 100px; padding: 12px 16px; }
+
+      footer { flex-direction: column; text-align: center; }
+
+      .modal-photo { height: 240px; }
+      .actions, .menu { padding-right: 20px; padding-left: 20px; }
+      .actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand">
+        <span class="brand-icon">🌯</span>
+        شاورما الصفا
+      </a>
+
+      <nav>
+        <a href="#restaurants">المطاعم</a>
+        <a href="#about">عن الدليل</a>
+        <a href="#restaurants" class="header-cta">استكشف الآن</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-blob one"></div>
+    <div class="hero-blob two"></div>
+    <span class="hero-float f1">🥙</span>
+    <span class="hero-float f2">🍗</span>
+    <span class="hero-float f3">🥤</span>
+    <span class="hero-float f4">🧅</span>
+
+    <div class="hero-inner">
+      <span class="hero-badge">
+        <span class="dot"></span>
+        دليل الشاورما الأول في حي الصفا
+      </span>
+
+      <h1>
+        الشاورما اللي تحبها،
+        <br>
+        <em>أقرب مما تتخيل.</em>
+      </h1>
+
+      <p>
+        اكتشف أفضل مطاعم الشاورما في حي الصفا، قارن التقييمات،
+        وتصفح المنيو قبل ما تختار وجبتك.
+      </p>
+
+      <label class="search-box">
+        <span class="search-icon">🔎</span>
+        <input
+          type="search"
+          id="search"
+          placeholder="ابحث عن مطعم أو صنف..."
+          autocomplete="off"
+        >
+        <span class="search-kbd">ابحث ↵</span>
+      </label>
+
+      <div class="stats">
+        <div class="stat"><b>10</b><span>مطاعم مختارة</span></div>
+        <div class="stat"><b>4.1</b><span>متوسط التقييم</span></div>
+        <div class="stat"><b>+260</b><span>صنف</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main id="restaurants">
+
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">اختيارات الحي</span>
+        <h2>مطاعم الصفا</h2>
+      </div>
+      <span id="count"></span>
+    </div>
+
+    <div class="filters reveal" id="filters">
+      <button class="chip active" data-filter="all">الكل</button>
+      <button class="chip" data-filter="شاورما">شاورما</button>
+      <button class="chip" data-filter="برجر">برجر</button>
+      <button class="chip" data-filter="عصائر">عصائر</button>
+      <button class="chip" data-filter="لحم">لحم</button>
+      <button class="chip" data-filter="فطور">فطور</button>
+    </div>
+
+    <div class="restaurants-grid reveal" id="restaurantsGrid"></div>
+
+    <div class="empty" id="emptyMessage" hidden>
+      <b>لا توجد نتائج مطابقة 🍽️</b>
+      جرّب كلمة بحث أخرى أو اختر تصنيفًا مختلفًا.
+    </div>
+
+  </main>
+
+  <section class="about" id="about">
+    <div class="reveal">
+      <h2>دليل صغير <em>بطعم كبير</em></h2>
+      <p>
+        مشروع طلابي يجمع أشهر مطاعم الشاورما في حي الصفا في مكان واحد،
+        لمساعدتك تختار مطعمك بسرعة وثقة.
+      </p>
+
+      <div class="about-chips">
+        <span class="about-chip">📍 حي الصفا، جدة</span>
+        <span class="about-chip">🗺️ روابط خرائط مباشرة</span>
+        <span class="about-chip">☎️ اتصال فوري بالمطاعم</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <b>🌯 شاورما الصفا</b>
+    <span>صُنع بحب لأهل حي الصفا · جدة</span>
+    <a href="#top">العودة للأعلى ↑</a>
+  </footer>
+
+  <div class="modal-background" id="modalBackground">
+
+    <section class="modal">
+
+      <button class="close-button" id="closeButton">×</button>
+
+      <div class="modal-photo">
+        <img id="modalPhoto" alt="صورة المطعم">
+
+        <div class="modal-heading">
+          <span class="rating-pill" id="modalRating"></span>
+          <h2 id="modalName"></h2>
+          <span class="loc">📍 حي الصفا، جدة</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a id="callButton" class="primary">☎ اتصال بالمطعم</a>
+        <a id="mapButton" target="_blank">⌖ فتح الخريطة</a>
+      </div>
+
+      <div class="menu">
+        <span class="menu-title">المنيو</span>
+        <h3>وش تشتهي اليوم؟</h3>
+
+        <div id="menuItems"></div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    const imageBase =
+      "https://shawarma-alsafa-jeddah.zksajohnson.chatgpt.site";
+
+    const imageFallback =
+      "data:image/svg+xml," +
+      encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3a2413"/>
+              <stop offset="1" stop-color="#8a5a1f"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#g)"/>
+          <text x="50%" y="52%" font-size="120" text-anchor="middle" dominant-baseline="middle">🌯</text>
+        </svg>`
+      );
+
+    const restaurants = [
+      {
+        name: "شاورما مروش",
+        rating: 4.2,
+        phone: "0556079218",
+        map: "https://maps.app.goo.gl/j474hW6Bztost6Yn8",
+        image: "/restaurants/maroosh.jpg",
+        tags: ["شاورما دجاج", "عصائر"],
+        menu: [
+          ["ساندويتش شاورما دجاج", 17],
+          ["شاورما دجاج بالجبن", 18],
+          ["ساندويتش شاورما سبايسي", 18],
+          ["شاورما دجاج بالصلصة البيضاء", 18],
+          ["عربي صغير", 22],
+          ["عربي وسط", 28],
+          ["عربي كبير", 38],
+          ["صحن شاورما فرط", 52],
+          ["صحن شاورما مشكل (دجاج + لحم)", 58],
+          ["بطاطس مقلية", 12],
+          ["بطاطس بالجبنة", 15],
+          ["حلقات بصل", 14],
+          ["ناغتس دجاج (6 قطع)", 18],
+          ["سلطة خضراء", 10],
+          ["عصير برتقال طازج", 12],
+          ["عصير مانجو", 12],
+          ["مشروب غازي", 6],
+          ["ماء معدني", 3]
+        ]
+      },
+      {
+        name: "شاورما ذوق",
+        rating: 4.1,
+        phone: "0561906709",
+        map: "https://maps.app.goo.gl/MKQRAV9rECpkEPss5",
+        image: "/restaurants/thoq.jpg",
+        tags: ["شاورما", "برجر"],
+        menu: [
+          ["ساندويتش خبز شامي", 11],
+          ["ساندويتش تورتيلا", 12],
+          ["تورتيلا كبير", 12],
+          ["ساندويتش شاورما لحم", 13],
+          ["صحن عادي", 18],
+          ["صحن وسط", 22],
+          ["صحن دبل", 27],
+          ["صحن مشكل", 30],
+          ["كانتري برجر", 18],
+          ["برجر دجاج", 16],
+          ["برجر لحم", 18],
+          ["بطاطس مقلية", 10],
+          ["بطاطس تشيز", 13],
+          ["أصابع موزاريلا", 14],
+          ["سلطة كول سلو", 8],
+          ["عصير فواكه مشكلة", 11],
+          ["مشروب طاقة", 8],
+          ["ماء", 3]
+        ]
+      },
+      {
+        name: "شاورما حدوته",
+        rating: 4.0,
+        phone: "0501577744",
+        map: "https://maps.app.goo.gl/P3Z9A9MZDUBTnK6x5",
+        image: "/restaurants/hadouta.jpg",
+        tags: ["دجاج ولحم", "عروض"],
+        menu: [
+          ["شامي دجاج", 6],
+          ["شامي لحم", 7],
+          ["صاج دجاج", 7],
+          ["صاج لحم", 8],
+          ["صاروخ دجاج", 9],
+          ["صاروخ لحم", 10],
+          ["ساندويتش شاورما مشكل", 10],
+          ["عربي دجاج", 18],
+          ["عربي لحم", 20],
+          ["عربي دبل", 23],
+          ["بوكس دجاج", 49],
+          ["بوكس لحم", 55],
+          ["بوكس مشكل", 52],
+          ["بطاطس عادية", 8],
+          ["بطاطس بالجبنة", 11],
+          ["حلقات بصل", 10],
+          ["سلطة طحينة", 8],
+          ["مخللات", 4],
+          ["مشروب غازي", 5],
+          ["عصير برتقال", 9]
+        ]
+      },
+      {
+        name: "شاورما وانيس",
+        rating: 4.2,
+        phone: "0539979940",
+        map: "https://maps.app.goo.gl/LRvUYTaafM4qWzec6",
+        image: "/restaurants/wanes.jpg",
+        tags: ["شاورما", "فطور"],
+        menu: [
+          ["ساندويتش شكشوكة", 6],
+          ["ساندويتش شكشوكة بالجبن", 8],
+          ["كبدة جبن", 8],
+          ["كبدة بالبيض", 9],
+          ["شكشوكة بالجبن", 14],
+          ["شكشوكة باللحم", 16],
+          ["بيتزا دجاج", 14.5],
+          ["بيتزا لحم", 16],
+          ["بيتزا خضار", 13],
+          ["مشكل مقبلات", 16],
+          ["فول مدمس", 8],
+          ["فلافل (6 قطع)", 10],
+          ["حمص باللحم", 12],
+          ["متبل باذنجان", 10],
+          ["بطاطس مقلية", 10],
+          ["بطاطس بالجبنة", 13],
+          ["شاي أحمر", 4],
+          ["قهوة عربية", 5],
+          ["عصير برتقال", 10],
+          ["ماء", 3]
+        ]
+      },
+      {
+        name: "شاورما حارتنا",
+        rating: 4.4,
+        phone: "0505550849",
+        map: "https://maps.app.goo.gl/m145HHj2NeCytekV8",
+        image: "/restaurants/hartna.jpg",
+        tags: ["الأعلى تقييمًا", "شاورما"],
+        featured: true,
+        menu: [
+          ["شاورما دجاج", 6],
+          ["شاورما لحم", 7],
+          ["شاورما مشكل", 7],
+          ["ساندويتش شامي دجاج", 6],
+          ["ساندويتش شامي لحم", 7],
+          ["ساندويتش صاج دجاج", 7],
+          ["ساندويتش صاج لحم", 8],
+          ["عربي دجاج", 18],
+          ["عربي لحم", 20],
+          ["عربي مشكل", 19],
+          ["عربي دبل دجاج", 25],
+          ["عربي دبل لحم", 28],
+          ["صحن شاورما دجاج", 32],
+          ["صحن شاورما لحم", 35],
+          ["صحن مشكل", 34],
+          ["بطاطس", 6],
+          ["بطاطس بالجبنة", 9],
+          ["حلقات بصل", 8],
+          ["سلطة خضراء", 8],
+          ["مخلل شاورما", 4],
+          ["ثوم", 3],
+          ["مشروب غازي", 5],
+          ["عصير مانجو", 10],
+          ["ماء معدني", 3]
+        ]
+      },
+      {
+        name: "شاورما دلع كرشك",
+        rating: 4.2,
+        phone: "0539950604",
+        map: "https://maps.app.goo.gl/a8zWsxbRafFGcei58",
+        image: "/restaurants/dalaa-karshak.png",
+        tags: ["شاورما شامية", "كرسبي"],
+        menu: [
+          ["شامي صغير", 9],
+          ["شامي وسط", 12],
+          ["شامي كبير", 15],
+          ["صاروخ صغير", 11],
+          ["صاروخ وسط", 14],
+          ["صاروخ كبير", 17],
+          ["سوبر صغير", 14],
+          ["سوبر وسط", 17],
+          ["سوبر كبير", 20],
+          ["عربي صغير", 22],
+          ["عربي وسط", 27],
+          ["عربي كبير", 33],
+          ["بروستد (4 قطع)", 25],
+          ["بروستد (8 قطع)", 45],
+          ["أجنحة بروستد (6 قطع)", 28],
+          ["بطاطس مقلية", 10],
+          ["بطاطس كرسبي", 12],
+          ["بطاطس بالجبنة والبيكون", 16],
+          ["كول سلو", 8],
+          ["سلطة سيزر دجاج", 18],
+          ["مشروب غازي", 6],
+          ["عصير فراولة", 11],
+          ["ماء", 3]
+        ]
+      },
+      {
+        name: "شاورما ذوق وطعم",
+        rating: 4.2,
+        phone: "0530517731",
+        map: "https://maps.app.goo.gl/usfPyvfDMJsSid1G8",
+        image: "/restaurants/thoq-w-taam.jpg",
+        tags: ["دجاج ولحم", "بوكسات"],
+        menu: [
+          ["ساندوتش صغير", 11],
+          ["ساندوتش كبير", 14],
+          ["ساندوتش مشكل", 13],
+          ["دبل حشوة", 18],
+          ["دبل حشوة بالجبن", 20],
+          ["تورتيلا دجاج", 14],
+          ["تورتيلا لحم", 15],
+          ["بوكس دجاج", 32],
+          ["بوكس لحم", 35],
+          ["بوكس مشكل", 34],
+          ["بوكس تربل", 37],
+          ["بوكس العائلة", 99],
+          ["بوكس حفلة (20 قطعة)", 180],
+          ["بطاطس", 10],
+          ["بطاطس تشيز", 13],
+          ["أصابع موزاريلا (6)", 16],
+          ["ناغتس (8 قطع)", 18],
+          ["سلطة خضراء", 10],
+          ["سلطة يونانية", 14],
+          ["مشروب غازي", 6],
+          ["عصير تفاح", 9],
+          ["ماء", 3]
+        ]
+      },
+      {
+        name: "شاورما وعصيرات راضي",
+        rating: 4.1,
+        phone: "0122120570",
+        map: "https://maps.app.goo.gl/vVbbNvhSJQU9WTUC8",
+        image: "/restaurants/radi.jpg",
+        tags: ["شاورما", "عصيرات"],
+        menu: [
+          ["صحن دجاج خلطة صغير", 25],
+          ["صحن دجاج خلطة كبير", 35],
+          ["صحن لحم مشكل", 25],
+          ["صحن لحم كبير", 35],
+          ["صحن مشكل (دجاج + لحم)", 30],
+          ["شاورما دجاج", 14],
+          ["شاورما لحم", 15],
+          ["ساندويتش شاورما دجاج", 14],
+          ["ساندويتش شاورما لحم", 15],
+          ["عربي دجاج", 22],
+          ["عربي لحم", 24],
+          ["بطاطس مقلية", 12],
+          ["بطاطس بالجبنة", 15],
+          ["حلقات بصل", 12],
+          ["سلطة خضراء", 10],
+          ["مخللات", 5],
+          ["عصير مانجو", 9],
+          ["عصير برتقال", 9],
+          ["عصير فراولة", 10],
+          ["عصير أفوكادو", 12],
+          ["عصير مشكل", 11],
+          ["جالون عصير مانجو", 30],
+          ["جالون عصير برتقال", 28],
+          ["جالون عصير مشكل", 32],
+          ["ماء معدني", 3],
+          ["مشروب غازي", 6]
+        ]
+      },
+      {
+        name: "بروتين",
+        rating: 3.4,
+        phone: "0534974442",
+        map: "https://maps.app.goo.gl/5SHUdtcsJ3SUi1hH7",
+        image: "/restaurants/protin.jpg",
+        tags: ["شاورما وبرجر", "منيو متنوع"],
+        menu: [
+          ["ساندويتش شاورما دجاج", 15],
+          ["ساندويتش شاورما لحم", 16],
+          ["ساندويتش شاورما مشكل", 16],
+          ["برجر دجاج", 18],
+          ["برجر لحم", 20],
+          ["برجر دبل", 25],
+          ["برجر تشيز", 22],
+          ["تورتيلا دجاج", 16],
+          ["تورتيلا لحم", 17],
+          ["صحن شاورما دجاج", 28],
+          ["صحن شاورما لحم", 30],
+          ["صحن بروستد", 35],
+          ["بوكس وجبة كاملة", 45],
+          ["بطاطس مقلية", 12],
+          ["بطاطس بالجبنة", 15],
+          ["بطاطس كاجون", 14],
+          ["أصابع موزاريلا", 16],
+          ["حلقات بصل", 12],
+          ["ناغتس دجاج", 18],
+          ["سلطة سيزر", 18],
+          ["سلطة يونانية", 16],
+          ["مشروب غازي", 6],
+          ["عصير طبيعي", 12],
+          ["ماء", 3],
+          ["شاي مثلج", 8]
+        ]
+      },
+      {
+        name: "فنان الشاورما",
+        rating: 3.9,
+        phone: "0564172348",
+        map: "https://maps.app.goo.gl/dR3hB8K62Uu4ATzB9",
+        image: "/restaurants/fannan.jpg",
+        tags: ["شاورما", "برجر"],
+        menu: [
+          ["ساندوتش شاورما وسط", 13],
+          ["ساندوتش شاورما كبير", 14],
+          ["ساندوتش شاورما دجاج", 13],
+          ["ساندوتش شاورما لحم", 14],
+          ["ساندوتش تورتيلا", 14],
+          ["برجر دجاج", 14],
+          ["برجر لحم", 16],
+          ["برجر دبل", 20],
+          ["برجر تشيز", 17],
+          ["صحن عربي وسط", 23],
+          ["صحن عربي كبير", 28],
+          ["صحن عربي دبل", 32],
+          ["صحن شاورما دجاج", 28],
+          ["صحن شاورما لحم", 30],
+          ["صحن مشكل", 29],
+          ["بطاطس مقلية", 10],
+          ["بطاطس بالجبنة", 13],
+          ["حلقات بصل", 10],
+          ["كول سلو", 8],
+          ["سلطة خضراء", 10],
+          ["مخللات", 4],
+          ["مشروب غازي", 6],
+          ["عصير برتقال", 10],
+          ["ماء معدني", 3]
+        ]
+      }
+    ];
+
+    const grid = document.getElementById("restaurantsGrid");
+    const count = document.getElementById("count");
+    const emptyMessage = document.getElementById("emptyMessage");
+    const searchInput = document.getElementById("search");
+    const filterButtons = document.querySelectorAll(".chip");
+    const modalBackground = document.getElementById("modalBackground");
+
+    let activeFilter = "all";
+    let searchText = "";
+
+    function stars(rating) {
+      const full = Math.round(rating);
+      return "★".repeat(full) + "☆".repeat(5 - full);
+    }
+
+    function cheapestPrice(menu) {
+      const prices = menu
+        .map(item => item[1])
+        .filter(p => typeof p === "number");
+      return prices.length ? Math.min(...prices) : null;
+    }
+
+    function renderRestaurants(list) {
+      count.textContent = list.length + " مطاعم";
+      emptyMessage.hidden = list.length !== 0;
+
+      grid.innerHTML = list.map(restaurant => {
+        const minPrice = cheapestPrice(restaurant.menu);
+
+        return `
+          <button
+            class="restaurant-card"
+            data-name="${restaurant.name}"
+          >
+            <div class="restaurant-photo">
+              <img
+                src="${imageBase + restaurant.image}"
+                alt="${restaurant.name}"
+                loading="lazy"
+                onerror="this.src='${imageFallback}'"
+              >
+
+              ${restaurant.featured
+                ? '<span class="featured-tag">⭐ الأعلى تقييمًا</span>'
+                : ""}
+
+              <div class="rating">
+                <span>★</span>
+                ${restaurant.rating}
+              </div>
+
+              ${minPrice
+                ? `<span class="price-tag">من ${minPrice} ر.س</span>`
+                : ""}
+            </div>
+
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3>${restaurant.name}</h3>
+                <span class="arrow">←</span>
+              </div>
+
+              <div class="card-meta">📍 حي الصفا، جدة</div>
+            </div>
+
+            <div class="tags">
+              ${restaurant.tags
+                .map(tag => `<span>${tag}</span>`)
+                .join("")}
+            </div>
+          </button>
+        `;
+      }).join("");
+
+      document
+        .querySelectorAll(".restaurant-card")
+        .forEach(card => {
+          card.addEventListener("click", () => {
+            const restaurant = restaurants.find(
+              item => item.name === card.dataset.name
+            );
+            openRestaurant(restaurant);
+          });
+        });
+    }
+
+    function openRestaurant(restaurant) {
+      const photo = document.getElementById("modalPhoto");
+      photo.src = imageBase + restaurant.image;
+      photo.onerror = () => { photo.src = imageFallback; };
+
+      document.getElementById("modalName").textContent = restaurant.name;
+
+      document.getElementById("modalRating").innerHTML =
+        `<span class="stars">${stars(restaurant.rating)}</span> ${restaurant.rating} من 5`;
+
+      document.getElementById("callButton").href = "tel:" + restaurant.phone;
+
+      document.getElementById("mapButton").href = restaurant.map;
+
+      document.getElementById("menuItems").innerHTML =
+        restaurant.menu.map(item => `
+          <article class="menu-item">
+            <div>
+              <h4>${item[0]}</h4>
+              <p>من أشهر أصناف المطعم</p>
+            </div>
+
+            <span class="price">
+              ${
+                typeof item[1] === "number"
+                  ? item[1] + " ر.س"
+                  : item[1]
+              }
+            </span>
+          </article>
+        `).join("");
+
+      modalBackground.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modalBackground.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document
+      .getElementById("closeButton")
+      .addEventListener("click", closeModal);
+
+    modalBackground.addEventListener("click", event => {
+      if (event.target === modalBackground) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    searchInput.addEventListener("input", event => {
+      searchText = event.target.value.trim();
+      applyFilters();
+    });
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    function applyFilters() {
+      const filtered = restaurants.filter(restaurant => {
+        const matchesSearch =
+          !searchText ||
+          restaurant.name.includes(searchText) ||
+          restaurant.tags.some(tag => tag.includes(searchText)) ||
+          restaurant.menu.some(item => item[0].includes(searchText));
+
+        const matchesFilter =
+          activeFilter === "all" ||
+          restaurant.tags.some(tag => tag.includes(activeFilter)) ||
+          restaurant.name.includes(activeFilter);
+
+        return matchesSearch && matchesFilter;
+      });
+
+      renderRestaurants(filtered);
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    renderRestaurants(restaurants);
+  </script>
+
+</body>
+</html>
